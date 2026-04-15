@@ -82,6 +82,13 @@ const loginControler = async(req,res)=> {
 
   const existingUser = await User.findOne({email})
 
+    if(!existingUser){
+    return res.status(404).json({
+      success: false,
+      message: "email not found"
+    })
+  }
+
   if(existingUser.isLogin){
     return res.status(400).json({
       success: false,
@@ -89,12 +96,7 @@ const loginControler = async(req,res)=> {
     })
   }
 
-  if(!existingUser){
-    return res.status(400).json({
-      success: false,
-      message: "email not found"
-    })
-  }
+
 
   let pass = bcrypt.compareSync(password, existingUser.password); 
   if (pass) {

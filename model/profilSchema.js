@@ -49,6 +49,28 @@ const profileSchema = new Schema ({
  profilId: {
     type: String,
   },
+  result:{
+    english:{
+      type:Number,
+      required:true
+    },
+    math:{
+      type:Number,
+      required:true
+    },
+    Physics:{
+      type:Number,
+      required:true
+    },
+    Chemistry:{
+      type:Number,
+      required:true
+    },
+    Biology:{
+      type:Number,
+      required:true
+    },
+  },
   isHold:{
     type:Boolean,
     default:false
